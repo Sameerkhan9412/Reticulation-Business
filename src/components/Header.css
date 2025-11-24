@@ -1,0 +1,62 @@
+/* 🔥 Mobile Header Optimization */
+@media (max-width: 768px) {
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo left, icons right */
+    padding: 0 12px; /* थोडा padding ताकि content किनारे से चिपके नहीं */
+  }
+
+  .header-logo-text {
+    font-size: 14px;
+    margin-right: 0;   /* ❌ पहले 40px था, अब हटा दिया */
+    flex-shrink: 0;    /* Logo compress नहीं होगा */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-right {
+    flex: 0;  /* ❌ पहले flex:1 था, जिससे unnecessary space बन रहा था */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* icons में थोड़ा space */
+  }
+
+  .header-right i,
+  .header-right svg,
+  .header-right button {
+    font-size: 18px;   /* mobile पर icons balanced दिखेंगे */
+    line-height: 1;
+  }
+}
+
+
+/* ✅ Google Translate Custom Styling */
+.goog-logo-link, .goog-te-gadget span {
+  display: none !important; /* Google branding हटाओ */
+}
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+/* Translator dropdown को modern look दो */
+#google_translate_element select {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 120px;
+}
+
+#google_translate_element select:hover {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
